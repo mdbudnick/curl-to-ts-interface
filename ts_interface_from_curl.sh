@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # URL to retrieve response from
-URL="https://example.com/api/endpoint"
+URL=""
 
 # Default values
 FILENAME=""
@@ -9,13 +9,16 @@ INTERFACE_NAME=""
 INTERFACE_COUNT=1
 
 # Parse command-line arguments
-while getopts ":f:i:" opt; do
+while getopts ":f:i:u:" opt; do
   case $opt in
     f)
       FILENAME=$OPTARG
       ;;
     i)
       INTERFACE_NAME=$OPTARG
+      ;;
+    u)
+      URL=$OPTARG
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
